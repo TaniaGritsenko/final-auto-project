@@ -288,7 +288,7 @@ export const cars = [
             year: '2025',
             mileage: '33 000 км',
             engine: 'Гібридний двигун',
-            fuel: 'Гібрит',
+            fuel: 'Гібрид',
             transmission: 'Автомат',
             color: 'Сірий',
             price: '55 000 $',

@@ -85,14 +85,27 @@ function CarCard({ car, openDetalis, setOpenDetalis}) {
                 <h3>Заявка на придбання авто</h3>
                 <p>Ви обрали: {car.title}</p>
                      {!isSent ? (  
-                 <>       
-                <input type="text" placeholder="Ваше ім'я" required/>
-                <input type="text" placeholder="Ваш телефон" required/>
-                <button className="send-order"
-                    onClick={handleSendOrder}>
+                <form
+                onSubmit={(event) => {
+                    event.preventDefault();
+                    handleSendOrder();
+                }}    
+                >
+                <input type="text" placeholder="Ваше ім'я" 
+                   pattern="[A-Za-zA-ЩЬЮЯГЄІЇа-щьюягєії' ]{2,}"
+                   title="Введіть ім'я літерами не менше 2 символів"
+                   required/>
+                <input type="tel" placeholder="Ваш телефон"
+                  pattern="[0-9]{10}"
+                  title="Введіть номер телефону цифрами, наприклад: 0931234567"
+                  onInput={(event) => {
+                    event.target.value.replace(/[^0-9+]/g, "")
+                  }}
+                   required/>
+                <button type="submit" className="send-order">
                      Відправити заявку
                 </button>
-                </>
+                </form>
                     ) : (
                 <p className="success-message">
                      Заявку надіслано. З вами зв'яжеться менеджер.

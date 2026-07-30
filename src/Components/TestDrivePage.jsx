@@ -10,54 +10,60 @@ function TestDrivePage({goHome}) {
     }
     return (
         <main className="bg-dark text-light min-vh-100 py-5">
-                <div className="container py-4">
-                    <button type="button" 
-                    className="btn btn-info rounded-pill px-4 mb-4"
-                    onClick={goHome}>
-                        Назад на головну
-                    </button>
-                    <div className="row justify-content-center">
-                        <div className="col-12 col-md-8 col-lg-6">
-                            <div className="bg-black bg-opacity-25 border border-secondary rounded-4 p-4 p-md-5">
-                                {!sent ? (
-                                    <>
-                                <div className="text-center mb-4">
-                                    <p className="aboud-brand text-info fw-semibold text-uppercase mb-2">
-                                        AutoDrive
-                                    </p>
-                                    <h2 className="fw-bold mb-3">Замовити тест-драйв</h2>
-                                       <p className="text-secondary mb-0">
-                                        Залиште заявку, і наш менеджер допоможе підібрати зручний час.
-                                </p>
+          <div className="container py-4">
+            <button type="button" 
+             className="btn btn-info rounded-pill px-4 mb-4"
+             onClick={goHome}>
+                Назад на головну
+            </button>
+            <div className="row justify-content-center">
+            <div className="col-12 col-md-8 col-lg-6">
+            <div className="bg-black bg-opacity-25 border border-secondary rounded-4 p-4 p-md-5">
+                 {!sent ? (
+                  <>
+                <div className="text-center mb-4">
+                    <p className="aboud-brand text-info fw-semibold text-uppercase mb-2">
+                          AutoDrive
+                    </p>
+                     <h2 className="fw-bold mb-3">Замовити тест-драйв</h2>
+                        <p className="text-secondary mb-0">
+                          Залиште заявку, і наш менеджер допоможе підібрати зручний час.
+                        </p>
+                </div>
+                    <form onSubmit={handleSubmit}>
+                        <div className="mb-3">
+                            <input type="text"
+                                className="form-control form-control-lg rounded-3"
+                                pattern="[A-Za-zA-ЩЬЮЯГЄІЇа-щьюягєії' ]{2,}"
+                                title="Введіть ім'я літерами не менше 2 символів"
+                                placeholder="Ваше ім'я"
+                                required></input>
+                        </div>
+                            <div className="mb-3">
+                                <input type="tel"
+                                    className="form-control form-control-lg rounded-3"
+                                    placeholder="Номер телефону"
+                                    pattern="[0-9]{10}"
+                                    title="Введіть номер телефону цифрами, наприклад: 0931234567"
+                                    required></input>
+                            </div>
+                                <div className="mb-4">
+                                    <input type="text"
+                                        className="form-control form-control-lg rounded-3"
+                                        placeholder="Який автомобіль вас цікавить"
+                                        minLength="3"
+                                        title="Введіть назву автомобіля не менше 3 символів"
+                                        required></input>
                                 </div>
-                                    <form onSubmit={handleSubmit}>
-                                        <div className="mb-3">
-                                            <input type="text"
-                                            className="form-control form-control-lg rounded-3"
-                                            placeholder="Ваше ім'я"
-                                            required></input>
-                                        </div>
-                                        <div className="mb-3">
-                                            <input type="tel"
-                                            className="form-control form-control-lg rounded-3"
-                                            placeholder="Номер телефону"
-                                            required></input>
-                                        </div>
-                                        <div className="mb-4">
-                                            <input type="tex"
-                                            className="form-control form-control-lg rounded-3"
-                                            placeholder="Який автомобіль вас цікавить"
-                                            required></input>
-                                        </div>
-                                        <button type="submit"
+                                    <button type="submit"
                                         className="btn btn-info btn-lg w-100 rounded-pill fw-semibold">
                                             Відправити заявку
-                                        </button>
-                                       </form>
-                                       </>
-                                ) : (
-                                    <div className="text-center py-5">
-                                        <div className="success-icon mb-3">
+                                    </button>
+                    </form>
+                        </>
+                            ) : (
+                                <div className="text-center py-5">
+                                    <div className="success-icon mb-3">
                                             <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
                                         </div>
                                         <h3 className="text-info fw-bold mb-3">
